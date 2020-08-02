@@ -9,11 +9,24 @@ module.exports = {
       return res.sendStatus(500);
     }
   },
-  
+
   async index(req, res) {
     try {
       const clientes = await Cliente.findAll();
       return res.json(clientes);
+    } catch (error) {
+      return res.sendStatus(500);
+    }
+  },
+
+  async update(req, res) {
+    try {
+      const { id } = req.params;
+      const cliente = await Cliente.update(req.body, {
+        where: { id },
+        returning: true,
+      });
+      return res.json(cliente[1]);
     } catch (error) {
       return res.sendStatus(500);
     }

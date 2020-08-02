@@ -5,7 +5,7 @@ class Cliente extends Model {
     super.init(
       {
         nome: DataTypes.STRING,
-        email: DataTypes.STRING,
+        bairro: DataTypes.STRING,
         cpf: DataTypes.STRING,
         rg: DataTypes.STRING,
         data: DataTypes.STRING,
